@@ -1,0 +1,3 @@
+rootProject.name='LearnGradle'
+include ':app'
+include ':lib'
