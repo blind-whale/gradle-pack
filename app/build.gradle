@@ -40,16 +40,15 @@ android {
     }
 
     applicationVariants.all { variant ->
-        variant.outputs.all { output ->
+        variant.outputs.each { output ->
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
                 def buildTypeName = variant.buildType.name
                 def flavorName = variant.productFlavors[0].name
                 def buildTime = new Date().format("yyyy-MM-dd-HH-mm-ss")
                 def fileName = "learn_${flavorName}_${defaultConfig.versionName}_${defaultConfig.versionCode}_${buildTime}_${buildTypeName}.apk"
-                outputFileName = fileName
+                output.outputFileName = fileName
             }
-
         }
     }
 }
